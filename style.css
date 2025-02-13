@@ -305,6 +305,9 @@ a {
     mix-blend-mode: normal;
 }
 
+
+
+
 /* Enhanced Animations */
 @keyframes show-content {
     100% {
@@ -396,10 +399,11 @@ a {
 
 /* Enhanced Footer Styles */
 .footer {
-    background: linear-gradient(180deg, transparent, rgba(157, 78, 221, 0.05));
+    background: linear-gradient(180deg, transparent, rgba(157, 78, 221, 0.1));
     padding: 4rem 9% 2rem;
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .footer::before {
@@ -408,30 +412,104 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
     position: relative;
     z-index: 1;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
 }
 
 .footer-section h3 {
     color: var(--primary-color);
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-.glow-text {
+    margin-bottom: 1rem;
     text-shadow: 0 0 10px var(--primary-color);
     animation: glow 2s ease-in-out infinite alternate;
 }
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-secondary);
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--primary-glow);
+}
+
+.footer .connect a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--primary-color);
+}
+
+.footer .connect a:hover {
+    transform: scale(1.2);
+    color: var(--primary-glow);
+}
+
+.footer .newsletter input {
+    padding: 0.5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background: var(--surface-color);
+    color: var(--text-color);
+    outline: none;
+}
+
+.footer .newsletter button {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background var(--transition-speed) ease;
+}
+
+.footer .newsletter button:hover {
+    background: var(--primary-glow);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* Footer Animation */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px var(--primary-color);
+    }
+    100% {
+        text-shadow: 0 0 20px var(--primary-glow);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 
 /* Rest of your existing footer styles with updated colors... */
 
@@ -458,3 +536,114 @@ a {
 }
 
 /* Rest of your existing media queries... */
+
+
+
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 9%;
+    background: linear-gradient(180deg, rgba(20, 20, 40, 0.9), rgba(10, 10, 30, 0.95));
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-box {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--primary-glow);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.about-content {
+    text-align: left;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.skills .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--text-color);
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.cta-container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+    transition: background 0.3s ease;
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    background: transparent;
+}
+
+.btn:hover {
+    background: var(--primary-glow);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-right {
+        margin-top: 2rem;
+    }
+}
